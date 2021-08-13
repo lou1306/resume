@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage{microtype}
+% \usepackage{times}
+\usepackage[hscale=0.7,vscale=0.9]{geometry}
+\recomputelengths
+
+\usepackage{datetime}
+\usepackage[bottom]{footmisc}
+
+\moderncvstyle{banking}
+\moderncvcolor{black}
+\nopagenumbers{}
+
+% Publications %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[doi=false,bibstyle=publist,plnumbered=false,plauthorhandling=highlight,boldyear=false,nameorder=given-family,linktitledoi=true]{biblatex}
+\plauthorname[Luca]{Di Stefano}
+\renewcommand*{\plauthorhl}[1]{#1}
+\DeclareFieldInputHandler{extradate}{\def\NewValue{}}
+\addbibresource{../publications.bib}
+\defbibcheck{isjournal}{\ifentrytype{article}{}{\skipentry}}
+\defbibcheck{isconference}{\ifentrytype{inproceedings}{}{\skipentry}}
+\defbibheading{journals}{\subsection*{Journal articles}}
+\defbibheading{conferences}{\subsection*{Peer-reviewed conference papers}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Luca Di Stefano}
+\date{\today}
+
+\firstname{Luca}
+\familyname{Di Stefano}
+\extrainfo{Curriculum Vitae} 
+\newdateformat{monthyear}{\monthname[\THEMONTH] \THEYEAR}
+\quote{\normalfont \monthyear\today}
+\usdate
+
+\newcommand{\comboJob}[5]{%
+\cventry{#3}{#2}{#1}{#4}{}{#5}%
+}
+
+\newcommand*{\custombold}[1]{\textbf{#1}}
+\newcommand*{\ifShort}[1]{}
+\newcommand*{\ifLong}[1]{#1}
+
+\newenvironment{tightemize}{\begin{itemize}\setlength\itemsep{0.2em}}{\end{itemize}}
+
+
+\input{../commands.tex}
+\begin{document}
+
+\makeatletter
+\bfseries
+\noindent {\Large\@author}\vspace*{0.4em}
+
+\normalfont
+\noindent {Curriculum vitae}
+
+\noindent{\monthyear\today}
+\makeatother
+
+\section*{Personal information}
+\begin{description}
+    \item[E-mail:] \href{mailto:luca.di-stefano@inria.fr}{luca.di-stefano@inria.fr} 
+    \item[Work address:] 655 avenue de l'Europe, 38334 Montbonnot, France
+    \item[Web page:] \href{https://convecs.inria.fr/people/Luca.Di-Stefano/}{convecs.inria.fr/people/Luca.Di-Stefano/} 
+\end{description}
+
+\section{Research interests}
+My research mainly concerns the formal modelling and analysis of multi-agent and
+collective systems. This entails, on one hand, the development of formally
+defined high-level languages to concisely describe the features of individual
+agents, and on the other hand the application of state-of-the-art
+verification techniques to check the collective behaviour of the system.
+%
+Keywords associated with my interests include:
+
+\cvline{Modelling}{%
+Multi-agent systems, collective adaptive systems,
+Agent-based modelling, Stigmergic interaction,
+Process algebras, Structural operational semantics,
+Attribute-based communication, Domain-specific languages.
+}
+\cvline{Analysis}{%
+Explicit-state and symbolic model checking,
+Bounded model checking, Temporal logics, Software verification.
+}
+
+
+\section*{Education}
+\input{data/edu.tex}
+
+\section*{Experience}
+\input{data/jobs.tex}
+
+\section*{Teaching}
+\input{data/teaching.tex}
+
+\section*{Other academic activities}
+
+\subsection{Reviewing activity}
+
+Invited as reviewer or sub-reviewer for the following conferences:
+
+\cvlistitem{International Conference on Autonomous Agents and Multiagent Systems (AAMAS)}
+\cvlistitem{International Symposium on Formal Methods (FM)}
+\cvlistitem{International Conference on Software Technologies (ICSOFT)}
+\cvlistitem{International Conference on Software Engineering and Formal Methods (SEFM)}
+\cvlistitem{Theoretical Aspects of Software Engineering Conference (TASE)}
+
+\subsection*{Participation to PhD schools}
+
+\input{data/schools.tex}
+
+\section*{Publications}
+\nocite{*}
+\printbibliography[heading=journals, check=isjournal]
+\printbibliography[heading=conferences, check=isconference]
+
+\subsection{Citation indices}
+
+Accessed on Scopus on \today.
+
+\cvline{Citations}{15}
+\cvline{\emph{h}-index}{3}  
+
+\end{document}
